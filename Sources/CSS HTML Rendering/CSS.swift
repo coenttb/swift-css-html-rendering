@@ -132,6 +132,8 @@ public struct CSS<Base: HTML.View>: HTML.View {
     }
 }
 
+extension CSS: Sendable where Base: Sendable {}
+
 // MARK: - Global CSS Builder Function
 
 /// Creates a CSS wrapper with type inference from the builder result.
