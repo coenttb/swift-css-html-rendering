@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func float(
         _ float: W3C_CSS_Positioning.Float?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_Positioning.Float>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_Positioning.Float>> {
         styled(float)
     }
 }

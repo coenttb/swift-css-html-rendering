@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func strokeLinecap(
         _ strokeLinecap: W3C_CSS_Images.StrokeLinecap?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_Images.StrokeLinecap>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_Images.StrokeLinecap>> {
         styled(strokeLinecap)
     }
 }

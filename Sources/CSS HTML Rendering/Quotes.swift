@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func quotes(
         _ quotes: W3C_CSS_Shared.Quotes?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_Shared.Quotes>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_Shared.Quotes>> {
         styled(quotes)
     }
 }

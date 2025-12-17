@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func pageBreakInside(
         _ pageBreakInside: W3C_CSS_Paged.PageBreakInside?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_Paged.PageBreakInside>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_Paged.PageBreakInside>> {
         styled(pageBreakInside)
     }
 }

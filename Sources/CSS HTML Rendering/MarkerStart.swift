@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func markerStart(
         _ markerStart: W3C_CSS_Images.MarkerStart?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_Images.MarkerStart>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_Images.MarkerStart>> {
         styled(markerStart)
     }
 }

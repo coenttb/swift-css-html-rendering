@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func maskBorderRepeat(
         _ maskBorderRepeat: W3C_CSS_Masking.MaskBorderRepeat?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_Masking.MaskBorderRepeat>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_Masking.MaskBorderRepeat>> {
         styled(maskBorderRepeat)
     }
 }

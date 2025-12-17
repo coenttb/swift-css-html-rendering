@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func webkitBorderBefore(
         _ webkitBorderBefore: W3C_CSS_UI.WebkitBorderBefore?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_UI.WebkitBorderBefore>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_UI.WebkitBorderBefore>> {
         styled(webkitBorderBefore)
     }
 }

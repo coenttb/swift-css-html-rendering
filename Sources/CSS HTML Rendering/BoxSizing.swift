@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func boxSizing(
         _ boxSizing: W3C_CSS_BoxModel.BoxSizing?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_BoxModel.BoxSizing>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_BoxModel.BoxSizing>> {
         styled(boxSizing)
     }
 }

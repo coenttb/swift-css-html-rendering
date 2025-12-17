@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func fontLanguageOverride(
         _ fontLanguageOverride: W3C_CSS_Fonts.FontLanguageOverride?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_Fonts.FontLanguageOverride>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_Fonts.FontLanguageOverride>> {
         styled(fontLanguageOverride)
     }
 }

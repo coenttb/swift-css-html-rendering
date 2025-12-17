@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func scrollPadding(
         _ scrollPadding: W3C_CSS_Scroll.ScrollPadding?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_Scroll.ScrollPadding>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_Scroll.ScrollPadding>> {
         styled(scrollPadding)
     }
 }

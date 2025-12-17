@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func mathDepth(
         _ mathDepth: W3C_CSS_Text.MathDepth?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_Text.MathDepth>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_Text.MathDepth>> {
         styled(mathDepth)
     }
 }

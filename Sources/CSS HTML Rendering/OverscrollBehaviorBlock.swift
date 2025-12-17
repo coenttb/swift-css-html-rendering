@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func overscrollBehaviorBlock(
         _ overscrollBehaviorBlock: W3C_CSS_Scroll.OverscrollBehaviorBlock?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_Scroll.OverscrollBehaviorBlock>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_Scroll.OverscrollBehaviorBlock>> {
         styled(overscrollBehaviorBlock)
     }
 }

@@ -38,8 +38,8 @@ let package = Package(
         .library(name: .cssHTMLRendering, targets: [.cssHTMLRendering]),
     ],
     dependencies: [
-        .package(url: "https://github.com/coenttb/swift-html-rendering", from: "0.1.0"),
-        .package(url: "https://github.com/swift-standards/swift-css-standard", from: "0.1.0"),
+        .package(url: "https://github.com/coenttb/swift-html-rendering", from: "0.1.10"),
+        .package(url: "https://github.com/swift-standards/swift-css-standard", from: "0.1.6"),
     ],
     targets: [
         .target(

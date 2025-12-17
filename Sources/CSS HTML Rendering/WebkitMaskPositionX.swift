@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func webkitMaskPositionX(
         _ webkitMaskPositionX: W3C_CSS_UI.WebkitMaskPositionX?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_UI.WebkitMaskPositionX>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_UI.WebkitMaskPositionX>> {
         styled(webkitMaskPositionX)
     }
 }

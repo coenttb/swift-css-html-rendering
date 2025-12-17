@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func textEmphasis(
         _ textEmphasis: W3C_CSS_Text.TextEmphasis?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_Text.TextEmphasis>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_Text.TextEmphasis>> {
         styled(textEmphasis)
     }
 }

@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func viewTimelineAxis(
         _ viewTimelineAxis: W3C_CSS_Animations.ViewTimelineAxis?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_Animations.ViewTimelineAxis>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_Animations.ViewTimelineAxis>> {
         styled(viewTimelineAxis)
     }
 }

@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func perspective(
         _ perspective: W3C_CSS_Transforms.Perspective?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_Transforms.Perspective>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_Transforms.Perspective>> {
         styled(perspective)
     }
 }

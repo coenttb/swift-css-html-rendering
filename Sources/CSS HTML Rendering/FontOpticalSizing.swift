@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func fontOpticalSizing(
         _ fontOpticalSizing: W3C_CSS_Fonts.FontOpticalSizing?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_Fonts.FontOpticalSizing>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_Fonts.FontOpticalSizing>> {
         styled(fontOpticalSizing)
     }
 }

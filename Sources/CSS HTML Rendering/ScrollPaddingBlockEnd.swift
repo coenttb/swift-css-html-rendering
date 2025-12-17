@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func scrollPaddingBlockEnd(
         _ scrollPaddingBlockEnd: W3C_CSS_Scroll.ScrollPaddingBlockEnd?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_Scroll.ScrollPaddingBlockEnd>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_Scroll.ScrollPaddingBlockEnd>> {
         styled(scrollPaddingBlockEnd)
     }
 }

@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func scrollSnapAlign(
         _ scrollSnapAlign: W3C_CSS_Scroll.ScrollSnapAlign?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_Scroll.ScrollSnapAlign>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_Scroll.ScrollSnapAlign>> {
         styled(scrollSnapAlign)
     }
 }

@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func minHeight(
         _ minHeight: W3C_CSS_BoxModel.MinHeight?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_BoxModel.MinHeight>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_BoxModel.MinHeight>> {
         styled(minHeight)
     }
 }

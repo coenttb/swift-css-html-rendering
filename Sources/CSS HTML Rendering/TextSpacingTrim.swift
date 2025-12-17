@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func textSpacingTrim(
         _ textSpacingTrim: W3C_CSS_Text.TextSpacingTrim?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_Text.TextSpacingTrim>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_Text.TextSpacingTrim>> {
         styled(textSpacingTrim)
     }
 }

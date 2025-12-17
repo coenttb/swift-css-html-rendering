@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func interpolateSize(
         _ interpolateSize: W3C_CSS_UI.InterpolateSize?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_UI.InterpolateSize>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_UI.InterpolateSize>> {
         styled(interpolateSize)
     }
 }

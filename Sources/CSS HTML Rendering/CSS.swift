@@ -5,7 +5,7 @@
 //  Provides namespaced access to CSS properties for better discoverability.
 //  Usage: `div.css.color(.red).padding(.px(16)).display(.flex)`
 //
-//  The `.css` accessor returns a `CSS<Base>` type, grouping CSS properties
+//  The `.css` accessor returns an `HTML.HTML.CSS<Base>` type, grouping CSS properties
 //  for easier autocomplete discovery. Once in the CSS namespace,
 //  you can chain methods fluently without repeating `.css`.
 //
@@ -24,7 +24,7 @@ public import HTML_Renderable
 ///     .display(.flex)
 /// ```
 ///
-/// `CSS` conforms to `HTML.View`, so it can be used directly
+/// `HTML.CSS` conforms to `HTML.View`, so it can be used directly
 /// anywhere an `HTML.View` is expected - no explicit unwrapping required:
 /// ```swift
 /// var body: some HTML.View {
@@ -34,33 +34,38 @@ public import HTML_Renderable
 ///
 /// The namespace helps with autocomplete discoverability and provides
 /// disambiguation when types conform to both `HTML.View` and `SwiftUI.View`.
-public struct CSS<Base: HTML.View>: HTML.View {
-    public let base: Base
+extension HTML {
+    public struct CSS<Base: HTML.View>: HTML.View {
+        public let base: Base
 
-    @inlinable
-    public init(base: Base) {
-        self.base = base
+        @inlinable
+        public init(base: Base) {
+            self.base = base
+        }
+
+        // MARK: - HTML.View Conformance
+
+        @inlinable
+        public var body: Base {
+            base
+        }
     }
+}
 
-    // MARK: - HTML.View Conformance
-
-    @inlinable
-    public var body: Base {
-        base
-    }
+extension CSS {
 
     // MARK: - CSS.Builder Result Builder
 
     /// A result builder for constructing CSS-wrapped HTML views.
     ///
-    /// Use `@CSS.Builder` to annotate functions that return `CSS<some HTML.View>`,
+    /// Use `@CSS.Builder` to annotate functions that return `HTML.CSS<some HTML.View>`,
     /// enabling the same DSL syntax as `@HTML.Builder` while automatically
-    /// wrapping the result in a `CSS` wrapper:
+    /// wrapping the result in an `HTML.CSS` wrapper:
     ///
     /// ```swift
-    /// extension CSS {
+    /// extension HTML.CSS {
     ///     @CSS.Builder
-    ///     func applyColor(_ color: Color?) -> CSS<some HTML.View> {
+    ///     func applyColor(_ color: Color?) -> HTML.CSS<some HTML.View> {
     ///         if let color {
     ///             base.inlineStyle(Color.color(color))
     ///         } else {
@@ -71,7 +76,7 @@ public struct CSS<Base: HTML.View>: HTML.View {
     /// ```
     ///
     /// This builder reuses the same transformation logic as `HTML.Builder` (from Renderable),
-    /// but wraps the final result in `CSS<...>` via `buildFinalResult`.
+    /// but wraps the final result in `HTML.CSS<...>` via `buildFinalResult`.
     @resultBuilder
     public enum Builder {
         // Pass through expressions unchanged (same as HTML.Builder)
@@ -122,27 +127,27 @@ public struct CSS<Base: HTML.View>: HTML.View {
             _Array(components)
         }
 
-        // The key difference: wrap the final result in CSS
+        // The key difference: wrap the final result in HTML.CSS
         @inlinable
         public static func buildFinalResult<Content: HTML.View>(
             _ component: Content
-        ) -> CSS<Content> {
-            CSS<Content>(base: component)
+        ) -> HTML.CSS<Content> {
+            HTML.CSS<Content>(base: component)
         }
     }
 }
 
-extension CSS: Sendable where Base: Sendable {}
+extension HTML.CSS: Sendable where Base: Sendable {}
 
 // MARK: - Global CSS Builder Function
 
-/// Creates a CSS wrapper with type inference from the builder result.
+/// Creates an HTML.CSS wrapper with type inference from the builder result.
 ///
 /// Use this function when you need to conditionally construct CSS content
 /// while preserving the concrete type information:
 /// ```swift
-/// func applyColor(_ color: Color?) -> CSS<some HTML.View> {
-///     css {
+/// func applyColor(_ color: Color?) -> HTML.CSS<some HTML.View> {
+///     cssBuilder {
 ///         if let color {
 ///             base.inlineStyle(Color.color(color))
 ///         } else {
@@ -152,30 +157,30 @@ extension CSS: Sendable where Base: Sendable {}
 /// }
 /// ```
 ///
-/// This is preferred over the `CSS { }` init inside extensions because
+/// This is preferred over the `HTML.CSS { }` init inside extensions because
 /// Swift cannot infer a different type parameter than `Base` in that context.
 @inlinable
 public func cssBuilder<Content: HTML.View>(
     @HTML.Builder _ content: () -> Content
-) -> CSS<Content> {
-    CSS<Content>(base: content())
+) -> HTML.CSS<Content> {
+    HTML.CSS<Content>(base: content())
 }
 
-extension CSS {
+extension HTML.CSS {
     // MARK: - Inline Style Helper
 
     /// Applies an inline style and returns a CSS wrapper with the styled content.
     ///
     /// The at-rule, selector, and pseudo values are read from the current
-    /// `HTML.Style.Context` TaskLocal, allowing context-based styling:
+    /// `HTML.Element.Style.Context` TaskLocal, allowing context-based styling:
     ///
     /// ```swift
     /// div.css.dark { $0.color(.white) }  // Uses .dark context
     /// button.css.hover { $0.backgroundColor(.blue) }  // Uses :hover context
     /// ```
     @inlinable
-    func styled<P: W3C_CSS_Shared.Property>(_ property: P?) -> CSS<HTML.Styled<Base, P>> {
-        CSS<HTML.Styled<Base, P>>(base: base.inlineStyle(property))
+    func styled<P: W3C_CSS_Shared.Property>(_ property: P?) -> HTML.CSS<HTML.Styled<Base, P>> {
+        HTML.CSS<HTML.Styled<Base, P>>(base: base.inlineStyle(property))
     }
 
     // MARK: - String-based Inline Style
@@ -186,7 +191,7 @@ extension CSS {
     /// Prefer typed properties when possible for better type safety.
     ///
     /// The at-rule, selector, and pseudo values are read from the current
-    /// `HTML.Style.Context` TaskLocal.
+    /// `HTML.Element.Style.Context` TaskLocal.
     ///
     /// ```swift
     /// div.css
@@ -202,9 +207,9 @@ extension CSS {
     public func inlineStyle(
         _ property: String,
         _ value: String?
-    ) -> CSS<some HTML.View> {
+    ) -> HTML.CSS<some HTML.View> {
         if let value {
-            CSS<HTML.Styled<Base, StringProperty>>(
+            HTML.CSS<HTML.Styled<Base, StringProperty>>(
                 base: base.inlineStyle(StringProperty(property, value))
             )
         } else {
@@ -227,10 +232,10 @@ extension HTML.View {
     ///     .display(.flex)
     /// ```
     ///
-    /// `CSS` conforms to `HTML.View`, so no explicit unwrapping
+    /// `HTML.CSS` conforms to `HTML.View`, so no explicit unwrapping
     /// is needed - use it directly in result builders and `some HTML.View` returns.
     @inlinable
-    public var css: CSS<Self> {
-        CSS(base: self)
+    public var css: HTML.CSS<Self> {
+        HTML.CSS(base: self)
     }
 }

@@ -10,7 +10,7 @@ public import HTML_Renderable
 
 // MARK: - Media Query Modifiers
 
-extension CSS {
+extension HTML.CSS {
     /// Applies styles within a media query context.
     ///
     /// The styles applied within the closure inherit the media query,
@@ -33,12 +33,12 @@ extension CSS {
     @inlinable
     public func media<Result: HTML.View>(
         _ media: W3C_CSS_MediaQueries.Media?,
-        @HTML.Builder _ content: (CSS<Base>) -> Result
-    ) -> CSS<Result> {
+        @HTML.Builder _ content: (HTML.CSS<Base>) -> Result
+    ) -> HTML.CSS<Result> {
         let atRule = media.map { HTML.AtRule.Media($0) }
-        let newContext = HTML.Style.Context.current.merging(with: .init(atRule: atRule))
-        return CSS<Result>(
-            base: HTML.Style.Context.$current.withValue(newContext) { content(self) }
+        let newContext = HTML.Element.Style.Context.current.merging(with: .init(atRule: atRule))
+        return HTML.CSS<Result>(
+            base: HTML.Element.Style.Context.$current.withValue(newContext) { content(self) }
         )
     }
 
@@ -51,8 +51,8 @@ extension CSS {
     /// ```
     @inlinable
     public func dark<Result: HTML.View>(
-        @HTML.Builder _ content: (CSS<Base>) -> Result
-    ) -> CSS<Result> {
+        @HTML.Builder _ content: (HTML.CSS<Base>) -> Result
+    ) -> HTML.CSS<Result> {
         media(.prefersColorScheme(.dark), content)
     }
 
@@ -65,8 +65,8 @@ extension CSS {
     /// ```
     @inlinable
     public func light<Result: HTML.View>(
-        @HTML.Builder _ content: (CSS<Base>) -> Result
-    ) -> CSS<Result> {
+        @HTML.Builder _ content: (HTML.CSS<Base>) -> Result
+    ) -> HTML.CSS<Result> {
         media(.prefersColorScheme(.light), content)
     }
 
@@ -77,8 +77,8 @@ extension CSS {
     /// ```
     @inlinable
     public func print<Result: HTML.View>(
-        @HTML.Builder _ content: (CSS<Base>) -> Result
-    ) -> CSS<Result> {
+        @HTML.Builder _ content: (HTML.CSS<Base>) -> Result
+    ) -> HTML.CSS<Result> {
         media(.print, content)
     }
 
@@ -89,8 +89,8 @@ extension CSS {
     /// ```
     @inlinable
     public func screen<Result: HTML.View>(
-        @HTML.Builder _ content: (CSS<Base>) -> Result
-    ) -> CSS<Result> {
+        @HTML.Builder _ content: (HTML.CSS<Base>) -> Result
+    ) -> HTML.CSS<Result> {
         media(.screen, content)
     }
 
@@ -101,8 +101,8 @@ extension CSS {
     /// ```
     @inlinable
     public func desktop<Result: HTML.View>(
-        @HTML.Builder _ content: (CSS<Base>) -> Result
-    ) -> CSS<Result> {
+        @HTML.Builder _ content: (HTML.CSS<Base>) -> Result
+    ) -> HTML.CSS<Result> {
         media(.desktop, content)
     }
 
@@ -113,15 +113,15 @@ extension CSS {
     /// ```
     @inlinable
     public func mobile<Result: HTML.View>(
-        @HTML.Builder _ content: (CSS<Base>) -> Result
-    ) -> CSS<Result> {
+        @HTML.Builder _ content: (HTML.CSS<Base>) -> Result
+    ) -> HTML.CSS<Result> {
         media(.mobile, content)
     }
 }
 
 // MARK: - Pseudo-Class Modifiers
 
-extension CSS {
+extension HTML.CSS {
     /// Applies styles within a pseudo-class or pseudo-element context.
     ///
     /// ```swift
@@ -131,11 +131,11 @@ extension CSS {
     @inlinable
     public func pseudo<Result: HTML.View>(
         _ pseudo: HTML.Pseudo?,
-        @HTML.Builder _ content: (CSS<Base>) -> Result
-    ) -> CSS<Result> {
-        let newContext = HTML.Style.Context.current.merging(with: .init(pseudo: pseudo))
-        return CSS<Result>(
-            base: HTML.Style.Context.$current.withValue(newContext) { content(self) }
+        @HTML.Builder _ content: (HTML.CSS<Base>) -> Result
+    ) -> HTML.CSS<Result> {
+        let newContext = HTML.Element.Style.Context.current.merging(with: .init(pseudo: pseudo))
+        return HTML.CSS<Result>(
+            base: HTML.Element.Style.Context.$current.withValue(newContext) { content(self) }
         )
     }
 
@@ -148,8 +148,8 @@ extension CSS {
     /// ```
     @inlinable
     public func hover<Result: HTML.View>(
-        @HTML.Builder _ content: (CSS<Base>) -> Result
-    ) -> CSS<Result> {
+        @HTML.Builder _ content: (HTML.CSS<Base>) -> Result
+    ) -> HTML.CSS<Result> {
         pseudo(.hover, content)
     }
 
@@ -162,8 +162,8 @@ extension CSS {
     /// ```
     @inlinable
     public func focus<Result: HTML.View>(
-        @HTML.Builder _ content: (CSS<Base>) -> Result
-    ) -> CSS<Result> {
+        @HTML.Builder _ content: (HTML.CSS<Base>) -> Result
+    ) -> HTML.CSS<Result> {
         pseudo(.focus, content)
     }
 
@@ -176,8 +176,8 @@ extension CSS {
     /// ```
     @inlinable
     public func active<Result: HTML.View>(
-        @HTML.Builder _ content: (CSS<Base>) -> Result
-    ) -> CSS<Result> {
+        @HTML.Builder _ content: (HTML.CSS<Base>) -> Result
+    ) -> HTML.CSS<Result> {
         pseudo(.active, content)
     }
 
@@ -190,8 +190,8 @@ extension CSS {
     /// ```
     @inlinable
     public func disabled<Result: HTML.View>(
-        @HTML.Builder _ content: (CSS<Base>) -> Result
-    ) -> CSS<Result> {
+        @HTML.Builder _ content: (HTML.CSS<Base>) -> Result
+    ) -> HTML.CSS<Result> {
         pseudo(.disabled, content)
     }
 
@@ -204,8 +204,8 @@ extension CSS {
     /// ```
     @inlinable
     public func visited<Result: HTML.View>(
-        @HTML.Builder _ content: (CSS<Base>) -> Result
-    ) -> CSS<Result> {
+        @HTML.Builder _ content: (HTML.CSS<Base>) -> Result
+    ) -> HTML.CSS<Result> {
         pseudo(.visited, content)
     }
 
@@ -216,8 +216,8 @@ extension CSS {
     /// ```
     @inlinable
     public func firstChild<Result: HTML.View>(
-        @HTML.Builder _ content: (CSS<Base>) -> Result
-    ) -> CSS<Result> {
+        @HTML.Builder _ content: (HTML.CSS<Base>) -> Result
+    ) -> HTML.CSS<Result> {
         pseudo(.firstChild, content)
     }
 
@@ -228,8 +228,8 @@ extension CSS {
     /// ```
     @inlinable
     public func lastChild<Result: HTML.View>(
-        @HTML.Builder _ content: (CSS<Base>) -> Result
-    ) -> CSS<Result> {
+        @HTML.Builder _ content: (HTML.CSS<Base>) -> Result
+    ) -> HTML.CSS<Result> {
         pseudo(.lastChild, content)
     }
 
@@ -240,8 +240,8 @@ extension CSS {
     /// ```
     @inlinable
     public func checked<Result: HTML.View>(
-        @HTML.Builder _ content: (CSS<Base>) -> Result
-    ) -> CSS<Result> {
+        @HTML.Builder _ content: (HTML.CSS<Base>) -> Result
+    ) -> HTML.CSS<Result> {
         pseudo(.checked, content)
     }
 
@@ -252,8 +252,8 @@ extension CSS {
     /// ```
     @inlinable
     public func placeholderShown<Result: HTML.View>(
-        @HTML.Builder _ content: (CSS<Base>) -> Result
-    ) -> CSS<Result> {
+        @HTML.Builder _ content: (HTML.CSS<Base>) -> Result
+    ) -> HTML.CSS<Result> {
         pseudo(.placeholderShown, content)
     }
 
@@ -264,8 +264,8 @@ extension CSS {
     /// ```
     @inlinable
     public func before<Result: HTML.View>(
-        @HTML.Builder _ content: (CSS<Base>) -> Result
-    ) -> CSS<Result> {
+        @HTML.Builder _ content: (HTML.CSS<Base>) -> Result
+    ) -> HTML.CSS<Result> {
         pseudo(.before, content)
     }
 
@@ -276,15 +276,15 @@ extension CSS {
     /// ```
     @inlinable
     public func after<Result: HTML.View>(
-        @HTML.Builder _ content: (CSS<Base>) -> Result
-    ) -> CSS<Result> {
+        @HTML.Builder _ content: (HTML.CSS<Base>) -> Result
+    ) -> HTML.CSS<Result> {
         pseudo(.after, content)
     }
 }
 
 // MARK: - Selector Modifiers
 
-extension CSS {
+extension HTML.CSS {
     /// Applies styles within a selector context.
     ///
     /// ```swift
@@ -293,18 +293,18 @@ extension CSS {
     @inlinable
     public func selector<Result: HTML.View>(
         _ selector: HTML.Selector?,
-        @HTML.Builder _ content: (CSS<Base>) -> Result
-    ) -> CSS<Result> {
-        let newContext = HTML.Style.Context.current.merging(with: .init(selector: selector))
-        return CSS<Result>(
-            base: HTML.Style.Context.$current.withValue(newContext) { content(self) }
+        @HTML.Builder _ content: (HTML.CSS<Base>) -> Result
+    ) -> HTML.CSS<Result> {
+        let newContext = HTML.Element.Style.Context.current.merging(with: .init(selector: selector))
+        return HTML.CSS<Result>(
+            base: HTML.Element.Style.Context.$current.withValue(newContext) { content(self) }
         )
     }
 }
 
 // MARK: - Chained Property Modifiers
 
-extension CSS where Base: HTML.View {
+extension HTML.CSS where Base: HTML.View {
     /// Adds a dark mode variant for the same property type that was just applied.
     ///
     /// This enables a fluent chained syntax for dark mode:
@@ -319,7 +319,7 @@ extension CSS where Base: HTML.View {
     @inlinable
     public func dark<Content: HTML.View, P: W3C_CSS_Shared.Property>(
         _ property: P
-    ) -> CSS<some HTML.View> where Base == HTML.Styled<Content, P> {
+    ) -> HTML.CSS<some HTML.View> where Base == HTML.Styled<Content, P> {
         // Apply dark mode style to the already-styled base, preserving the original style
         self.dark { _ in self.base.inlineStyle(property) }
     }
@@ -333,7 +333,7 @@ extension CSS where Base: HTML.View {
     @inlinable
     public func light<Content: HTML.View, P: W3C_CSS_Shared.Property>(
         _ property: P
-    ) -> CSS<some HTML.View> where Base == HTML.Styled<Content, P> {
+    ) -> HTML.CSS<some HTML.View> where Base == HTML.Styled<Content, P> {
         self.light { _ in self.base.inlineStyle(property) }
     }
 
@@ -346,7 +346,7 @@ extension CSS where Base: HTML.View {
     @inlinable
     public func hover<Content: HTML.View, P: W3C_CSS_Shared.Property>(
         _ property: P
-    ) -> CSS<some HTML.View> where Base == HTML.Styled<Content, P> {
+    ) -> HTML.CSS<some HTML.View> where Base == HTML.Styled<Content, P> {
         self.hover { _ in self.base.inlineStyle(property) }
     }
 
@@ -359,7 +359,7 @@ extension CSS where Base: HTML.View {
     @inlinable
     public func focus<Content: HTML.View, P: W3C_CSS_Shared.Property>(
         _ property: P
-    ) -> CSS<some HTML.View> where Base == HTML.Styled<Content, P> {
+    ) -> HTML.CSS<some HTML.View> where Base == HTML.Styled<Content, P> {
         self.focus { _ in self.base.inlineStyle(property) }
     }
 
@@ -372,7 +372,7 @@ extension CSS where Base: HTML.View {
     @inlinable
     public func active<Content: HTML.View, P: W3C_CSS_Shared.Property>(
         _ property: P
-    ) -> CSS<some HTML.View> where Base == HTML.Styled<Content, P> {
+    ) -> HTML.CSS<some HTML.View> where Base == HTML.Styled<Content, P> {
         self.active { _ in self.base.inlineStyle(property) }
     }
 }

@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func whiteSpaceCollapse(
         _ whiteSpaceCollapse: W3C_CSS_Text.WhiteSpaceCollapse?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_Text.WhiteSpaceCollapse>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_Text.WhiteSpaceCollapse>> {
         styled(whiteSpaceCollapse)
     }
 }

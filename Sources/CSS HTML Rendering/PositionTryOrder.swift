@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func positionTryOrder(
         _ positionTryOrder: W3C_CSS_Positioning.PositionTryOrder?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_Positioning.PositionTryOrder>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_Positioning.PositionTryOrder>> {
         styled(positionTryOrder)
     }
 }

@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func alignmentBaseline(
         _ alignmentBaseline: W3C_CSS_Alignment.AlignmentBaseline?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_Alignment.AlignmentBaseline>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_Alignment.AlignmentBaseline>> {
         styled(alignmentBaseline)
     }
 }

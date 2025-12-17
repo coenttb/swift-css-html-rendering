@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func animationRangeEnd(
         _ animationRangeEnd: W3C_CSS_Animations.AnimationRangeEnd?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_Animations.AnimationRangeEnd>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_Animations.AnimationRangeEnd>> {
         styled(animationRangeEnd)
     }
 }

@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func offsetRotate(
         _ offsetRotate: W3C_CSS_Animations.OffsetRotate?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_Animations.OffsetRotate>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_Animations.OffsetRotate>> {
         styled(offsetRotate)
     }
 }

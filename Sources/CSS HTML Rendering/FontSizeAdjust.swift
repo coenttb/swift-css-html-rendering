@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func fontSizeAdjust(
         _ fontSizeAdjust: W3C_CSS_Fonts.FontSizeAdjust?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_Fonts.FontSizeAdjust>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_Fonts.FontSizeAdjust>> {
         styled(fontSizeAdjust)
     }
 }

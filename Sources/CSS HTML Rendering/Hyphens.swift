@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func hyphens(
         _ hyphens: W3C_CSS_Text.Hyphens?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_Text.Hyphens>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_Text.Hyphens>> {
         styled(hyphens)
     }
 }

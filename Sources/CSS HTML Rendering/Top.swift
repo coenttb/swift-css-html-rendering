@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func top(
         _ top: W3C_CSS_Positioning.Top?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_Positioning.Top>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_Positioning.Top>> {
         styled(top)
     }
 }

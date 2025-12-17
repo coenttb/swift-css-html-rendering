@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func gridColumn(
         _ gridColumn: W3C_CSS_Grid.GridColumn?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_Grid.GridColumn>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_Grid.GridColumn>> {
         styled(gridColumn)
     }
 }

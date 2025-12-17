@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func dominantBaseline(
         _ dominantBaseline: W3C_CSS_Images.DominantBaseline?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_Images.DominantBaseline>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_Images.DominantBaseline>> {
         styled(dominantBaseline)
     }
 }

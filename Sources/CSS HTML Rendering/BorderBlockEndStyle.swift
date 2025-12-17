@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func borderBlockEndStyle(
         _ borderBlockEndStyle: W3C_CSS_Backgrounds.BorderBlockEndStyle?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_Backgrounds.BorderBlockEndStyle>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_Backgrounds.BorderBlockEndStyle>> {
         styled(borderBlockEndStyle)
     }
 }

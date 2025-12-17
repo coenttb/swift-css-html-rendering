@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func fontVariantNumeric(
         _ fontVariantNumeric: W3C_CSS_Fonts.FontVariantNumeric?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_Fonts.FontVariantNumeric>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_Fonts.FontVariantNumeric>> {
         styled(fontVariantNumeric)
     }
 }

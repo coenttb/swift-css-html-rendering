@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func strokeWidth(
         _ strokeWidth: W3C_CSS_Images.StrokeWidth?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_Images.StrokeWidth>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_Images.StrokeWidth>> {
         styled(strokeWidth)
     }
 }

@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func columnRule(
         _ columnRule: W3C_CSS_Multicolumn.ColumnRule?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_Multicolumn.ColumnRule>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_Multicolumn.ColumnRule>> {
         styled(columnRule)
     }
 }

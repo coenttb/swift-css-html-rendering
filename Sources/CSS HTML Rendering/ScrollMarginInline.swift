@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func scrollMarginInline(
         _ scrollMarginInline: W3C_CSS_Scroll.ScrollMarginInline?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_Scroll.ScrollMarginInline>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_Scroll.ScrollMarginInline>> {
         styled(scrollMarginInline)
     }
 }

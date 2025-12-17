@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func webkitMaskComposite(
         _ webkitMaskComposite: W3C_CSS_UI.WebkitMaskComposite?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_UI.WebkitMaskComposite>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_UI.WebkitMaskComposite>> {
         styled(webkitMaskComposite)
     }
 }

@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func blockSize(
         _ blockSize: W3C_CSS_Logical.BlockSize?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_Logical.BlockSize>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_Logical.BlockSize>> {
         styled(blockSize)
     }
 }

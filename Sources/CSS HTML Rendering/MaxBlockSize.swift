@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func maxBlockSize(
         _ maxBlockSize: W3C_CSS_Logical.MaxBlockSize?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_Logical.MaxBlockSize>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_Logical.MaxBlockSize>> {
         styled(maxBlockSize)
     }
 }

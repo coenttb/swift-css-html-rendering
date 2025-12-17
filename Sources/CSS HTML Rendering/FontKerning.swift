@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func fontKerning(
         _ fontKerning: W3C_CSS_Fonts.FontKerning?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_Fonts.FontKerning>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_Fonts.FontKerning>> {
         styled(fontKerning)
     }
 }

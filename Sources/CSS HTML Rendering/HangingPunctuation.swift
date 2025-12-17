@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func hangingPunctuation(
         _ hangingPunctuation: W3C_CSS_Text.HangingPunctuation?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_Text.HangingPunctuation>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_Text.HangingPunctuation>> {
         styled(hangingPunctuation)
     }
 }

@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func marginInline(
         _ marginInline: W3C_CSS_BoxModel.MarginInline?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_BoxModel.MarginInline>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_BoxModel.MarginInline>> {
         styled(marginInline)
     }
 }

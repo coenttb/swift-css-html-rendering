@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func textBoxTrim(
         _ textBoxTrim: W3C_CSS_Text.TextBoxTrim?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_Text.TextBoxTrim>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_Text.TextBoxTrim>> {
         styled(textBoxTrim)
     }
 }

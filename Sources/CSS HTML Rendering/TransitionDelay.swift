@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func transitionDelay(
         _ transitionDelay: W3C_CSS_Transitions.TransitionDelay?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_Transitions.TransitionDelay>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_Transitions.TransitionDelay>> {
         styled(transitionDelay)
     }
 }

@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func viewTransitionName(
         _ viewTransitionName: W3C_CSS_Animations.ViewTransitionName?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_Animations.ViewTransitionName>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_Animations.ViewTransitionName>> {
         styled(viewTransitionName)
     }
 }

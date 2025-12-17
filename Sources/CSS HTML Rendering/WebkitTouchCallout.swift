@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func webkitTouchCallout(
         _ webkitTouchCallout: W3C_CSS_UI.WebkitTouchCallout?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_UI.WebkitTouchCallout>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_UI.WebkitTouchCallout>> {
         styled(webkitTouchCallout)
     }
 }

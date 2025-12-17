@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func overflowX(
         _ overflowX: W3C_CSS_BoxModel.OverflowX?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_BoxModel.OverflowX>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_BoxModel.OverflowX>> {
         styled(overflowX)
     }
 }

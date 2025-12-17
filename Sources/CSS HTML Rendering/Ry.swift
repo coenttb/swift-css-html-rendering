@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func ry(
         _ ry: W3C_CSS_Images.Ry?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_Images.Ry>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_Images.Ry>> {
         styled(ry)
     }
 }

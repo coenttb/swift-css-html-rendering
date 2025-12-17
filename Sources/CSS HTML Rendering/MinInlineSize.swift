@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func minInlineSize(
         _ minInlineSize: W3C_CSS_Logical.MinInlineSize?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_Logical.MinInlineSize>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_Logical.MinInlineSize>> {
         styled(minInlineSize)
     }
 }

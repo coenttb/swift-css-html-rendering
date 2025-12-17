@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func fontVariantPosition(
         _ fontVariantPosition: W3C_CSS_Fonts.FontVariantPosition?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_Fonts.FontVariantPosition>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_Fonts.FontVariantPosition>> {
         styled(fontVariantPosition)
     }
 }

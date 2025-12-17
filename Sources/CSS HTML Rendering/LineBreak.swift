@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func lineBreak(
         _ lineBreak: W3C_CSS_Text.LineBreak?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_Text.LineBreak>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_Text.LineBreak>> {
         styled(lineBreak)
     }
 }

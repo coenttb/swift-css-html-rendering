@@ -8,22 +8,22 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func lineHeight(
         _ lineHeight: W3C_CSS_Text.LineHeight?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_Text.LineHeight>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_Text.LineHeight>> {
         styled(lineHeight)
     }
 }
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func lineHeight<T: BinaryInteger>(
         _ lineHeight: T?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_Text.LineHeight>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_Text.LineHeight>> {
         styled(lineHeight.map { LineHeight(integerLiteral: Int($0)) })
     }
 
@@ -31,7 +31,7 @@ extension CSS {
     @_disfavoredOverload
     public func lineHeight<T: BinaryFloatingPoint>(
         _ lineHeight: T?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_Text.LineHeight>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_Text.LineHeight>> {
         styled(lineHeight.map { LineHeight(floatLiteral: Double($0)) })
     }
 }

@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func insetInlineStart(
         _ insetInlineStart: W3C_CSS_Positioning.InsetInlineStart?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_Positioning.InsetInlineStart>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_Positioning.InsetInlineStart>> {
         styled(insetInlineStart)
     }
 }

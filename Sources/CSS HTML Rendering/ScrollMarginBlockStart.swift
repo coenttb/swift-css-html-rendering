@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func scrollMarginBlockStart(
         _ scrollMarginBlockStart: W3C_CSS_Scroll.ScrollMarginBlockStart?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_Scroll.ScrollMarginBlockStart>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_Scroll.ScrollMarginBlockStart>> {
         styled(scrollMarginBlockStart)
     }
 }

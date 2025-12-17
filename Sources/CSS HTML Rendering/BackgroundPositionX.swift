@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func backgroundPositionX(
         _ backgroundPositionX: W3C_CSS_Backgrounds.BackgroundPositionX?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_Backgrounds.BackgroundPositionX>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_Backgrounds.BackgroundPositionX>> {
         styled(backgroundPositionX)
     }
 }

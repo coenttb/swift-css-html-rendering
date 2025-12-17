@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func paddingTop(
         _ paddingTop: W3C_CSS_BoxModel.PaddingTop?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_BoxModel.PaddingTop>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_BoxModel.PaddingTop>> {
         styled(paddingTop)
     }
 }

@@ -20,7 +20,7 @@ extension HTML.View {
     /// Applies a global CSS value (inherit, initial, unset, etc.) to a specific property.
     ///
     /// The at-rule, selector, and pseudo values are read from the current
-    /// `HTML.Style.Context` TaskLocal.
+    /// `HTML.Element.Style.Context` TaskLocal.
     ///
     /// ```swift
     /// div.inlineStyle(Color.self, .inherit)

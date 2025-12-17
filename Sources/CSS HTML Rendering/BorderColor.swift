@@ -8,12 +8,12 @@
 public import CSS_Standard
 public import HTML_Renderable
 
-extension CSS {
+extension HTML.CSS {
     @discardableResult
     @_disfavoredOverload
     public func borderColor(
         _ borderColor: W3C_CSS_Backgrounds.BorderColor?
-    ) -> CSS<HTML.Styled<Base, W3C_CSS_Backgrounds.BorderColor>> {
+    ) -> HTML.CSS<HTML.Styled<Base, W3C_CSS_Backgrounds.BorderColor>> {
         styled(borderColor)
     }
 }
