@@ -52,8 +52,10 @@ extension HTML {
     }
 }
 
-extension CSS {
-
+/// CSS namespace for the result builder.
+///
+/// Use `@CSS.Builder` to annotate functions that return `HTML.CSS<some HTML.View>`.
+public enum CSS {
     // MARK: - CSS.Builder Result Builder
 
     /// A result builder for constructing CSS-wrapped HTML views.
