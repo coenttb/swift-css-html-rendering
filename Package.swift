@@ -14,6 +14,9 @@ extension Target.Dependency {
     static var cssStandard: Self {
         .product(name: "CSS Standard", package: "swift-css-standard")
     }
+    static var layout: Self {
+        .product(name: "Layout", package: "swift-standards")
+    }
     static var htmlRenderable: Self {
         .product(name: "HTML Renderable", package: "swift-html-rendering")
     }
@@ -43,7 +46,8 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/apple/swift-collections.git", from: "1.1.0"),
         .package(url: "https://github.com/coenttb/swift-html-rendering", from: "0.1.12"),
-        .package(url: "https://github.com/swift-standards/swift-css-standard", from: "0.1.6"),
+        .package(url: "https://github.com/swift-standards/swift-css-standard", from: "0.1.7"),
+        .package(url: "https://github.com/swift-standards/swift-standards", from: "0.20.1"),
     ],
     targets: [
         .target(
@@ -51,6 +55,7 @@ let package = Package(
             dependencies: [
                 .htmlRendering,
                 .cssStandard,
+                .layout,
                 .orderedCollections,
             ]
         ),
