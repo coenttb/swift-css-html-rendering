@@ -23,6 +23,9 @@ extension Target.Dependency {
     static var htmlRenderableTestSupport: Self {
         .product(name: "HTML Rendering TestSupport", package: "swift-html-rendering")
     }
+    static var orderedCollections: Self {
+        .product(name: "OrderedCollections", package: "swift-collections")
+    }
 }
 
 let package = Package(
@@ -38,6 +41,7 @@ let package = Package(
         .library(name: .cssHTMLRendering, targets: [.cssHTMLRendering]),
     ],
     dependencies: [
+        .package(url: "https://github.com/apple/swift-collections.git", from: "1.1.0"),
         .package(url: "https://github.com/coenttb/swift-html-rendering", from: "0.1.12"),
         .package(url: "https://github.com/swift-standards/swift-css-standard", from: "0.1.6"),
     ],
@@ -47,6 +51,7 @@ let package = Package(
             dependencies: [
                 .htmlRendering,
                 .cssStandard,
+                .orderedCollections,
             ]
         ),
         .testTarget(
