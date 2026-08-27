@@ -2,7 +2,7 @@
 # Triaged by AI-assisted bulk pass (2026-04-29).
 description: "Applies typed CSS properties to HTML views through a fluent namespace, with SwiftUI-style layout views such as HStack and VStack for Swift."
 topics:
-  - foundations
+  - compositions
   - css
 homepage: "https://swift-institute.org"
 readme:

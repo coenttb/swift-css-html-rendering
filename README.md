@@ -41,7 +41,7 @@ let card = ContentDivision { }
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/swift-foundations/swift-css-html-render.git", branch: "main")
+    .package(url: "https://github.com/swift-compositions/swift-css-html-render.git", branch: "main")
 ]
 ```
 

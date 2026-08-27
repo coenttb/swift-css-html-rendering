@@ -40,7 +40,7 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(url: "https://github.com/swift-foundations/swift-html-render.git", branch: "main"),
+        .package(url: "https://github.com/swift-compositions/swift-html-render.git", branch: "main"),
         .package(url: "https://github.com/swift-standards/swift-css-standard.git", branch: "main"),
     ],
     targets: [
