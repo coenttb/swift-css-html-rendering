@@ -2,27 +2,6 @@
 
 import PackageDescription
 
-extension String {
-    static let cssHTMLRendering: Self = "CSS HTML Rendering"
-    var tests: Self { self + " Tests" }
-}
-
-extension Target.Dependency {
-    static var cssHTMLRendering: Self { .target(name: .cssHTMLRendering) }
-}
-
-extension Target.Dependency {
-    static var cssStandard: Self {
-        .product(name: "CSS Standard", package: "swift-css-standard")
-    }
-    static var htmlRenderingCore: Self {
-        .product(name: "HTML Rendering Core", package: "swift-html-render")
-    }
-    static var htmlRendering: Self {
-        .product(name: "HTML Rendering", package: "swift-html-render")
-    }
-}
-
 let package = Package(
     name: "swift-css-html-render",
     platforms: [
@@ -33,7 +12,7 @@ let package = Package(
         .visionOS(.v27),
     ],
     products: [
-        .library(name: .cssHTMLRendering, targets: [.cssHTMLRendering]),
+        .library(name: "CSS HTML Rendering", targets: ["CSS HTML Rendering"]),
         .library(
             name: "CSS HTML Rendering Test Support",
             targets: ["CSS HTML Rendering Test Support"]
@@ -45,25 +24,25 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: .cssHTMLRendering,
+            name: "CSS HTML Rendering",
             dependencies: [
-                .htmlRendering,
-                .cssStandard,
+                .product(name: "HTML Rendering", package: "swift-html-render"),
+                .product(name: "CSS Standard", package: "swift-css-standard"),
             ]
         ),
         .target(
             name: "CSS HTML Rendering Test Support",
             dependencies: [
-                .cssHTMLRendering,
-                .cssStandard,
+                .target(name: "CSS HTML Rendering"),
+                .product(name: "CSS Standard", package: "swift-css-standard"),
                 .product(name: "HTML Rendering Core Test Support", package: "swift-html-render"),
             ],
             path: "Tests/Support"
         ),
         .testTarget(
-            name: .cssHTMLRendering.tests,
+            name: "CSS HTML Rendering Tests",
             dependencies: [
-                "CSS HTML Rendering Test Support"
+                .target(name: "CSS HTML Rendering Test Support")
             ],
             path: "Tests/CSS HTML Rendering Tests"
         ),
